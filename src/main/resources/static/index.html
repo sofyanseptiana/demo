@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player Currency</title>
+</head>
+<body>
+    <h1>Daftar Player</h1>
+    <ul id="playerList"></ul>
+
+    <script>
+        fetch("/players")
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById("playerList");
+                data.forEach(player => {
+                    const li = document.createElement("li");
+                    li.textContent = player.nama + " - " + player.copper + " copper";
+                    list.appendChild(li);
+                });
+            });
+    </script>
+</body>
+</html>
