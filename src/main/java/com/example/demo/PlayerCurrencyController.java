@@ -3,19 +3,18 @@ package com.example.demo;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/players")
+@CrossOrigin(origins = "*")
 public class PlayerCurrencyController {
 
-    private final PlayerCurrencyRepository repo;
+    private final PlayerCurrencyRepository repository;
 
-    public PlayerCurrencyController(PlayerCurrencyRepository repo) {
-        this.repo = repo;
+    public PlayerCurrencyController(PlayerCurrencyRepository repository) {
+        this.repository = repository;
     }
 
-    @GetMapping
-    public List<PlayerCurrency> getAll() {
-        return repo.findAll();
+    @GetMapping("/players")
+    public List<PlayerCurrency> getPlayers() {
+        return repository.findAll();
     }
 }
